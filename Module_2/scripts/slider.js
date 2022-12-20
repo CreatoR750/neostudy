@@ -28,20 +28,28 @@ const getData = async () => {
 };
 
 next.addEventListener("click", () => {
-    prev.classList.remove("disabled");
+    if (prev.classList.contains("disabled")) {
+        prev.classList.remove("disabled");
+        prev.innerHTML = `<img src="./assets/svg/prevWhite.svg" alt="Prev" />`;
+    }
     offset = offset + cardWidth;
     if (offset >= cardWidth * length) {
         next.classList.add("disabled");
+        next.innerHTML = `<img src="./assets/svg/nextBlack.svg" alt="Prev" />`;
         offset = cardWidth * length;
     }
     slider.style.left = -offset + "px";
 });
 
 prev.addEventListener("click", () => {
-    next.classList.remove("disabled");
+    if (next.classList.contains("disabled")) {
+        next.classList.remove("disabled");
+        next.innerHTML = `<img src="./assets/svg/nextWhite.svg" alt="Prev" />`;
+    }
     offset = offset - cardWidth;
     if (offset <= 0) {
         prev.classList.add("disabled");
+        prev.innerHTML = `<img src="./assets/svg/prevBlack.svg" alt="Prev" />`;
     }
     slider.style.left = -offset + "px";
 });

@@ -372,18 +372,31 @@ body {
                 text-align: center;
                 gap: 32px;
                 cursor: pointer;
+
                 &__img {
-                    height: 120px;
+                    width: 100%;
                 }
 
                 &__title {
                     @include bigMedium($black);
                     line-height: 25px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3; /* number of lines to show */
+                    line-clamp: 3;
+                    -webkit-box-orient: vertical;
                 }
 
                 &__description {
                     @include baseMedium($black);
                     line-height: 23px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4; /* number of lines to show */
+                    line-clamp: 4;
+                    -webkit-box-orient: vertical;
                 }
             }
 
@@ -393,7 +406,10 @@ body {
                 gap: 20px;
                 justify-content: flex-end;
 
-                &__prev {
+                button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     width: 64px;
                     height: 64px;
                     border: none;
@@ -402,19 +418,11 @@ body {
                     border-radius: 50px;
                     cursor: pointer;
                 }
-
-                &__next {
-                    width: 64px;
-                    height: 64px;
-                    border: none;
-                    color: $white;
-                    background: #003cff;
-                    border-radius: 50px;
-                    cursor: pointer;
-                }
-
+    
                 .disabled {
                     pointer-events: none;
+                    background: $white;
+                    border: 1px solid $blue;
                 }
             }
         }

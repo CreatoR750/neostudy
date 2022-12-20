@@ -373,19 +373,31 @@ body {
   cursor: pointer;
 }
 .news__container .slider__card__img {
-  height: 120px;
+  width: 100%;
 }
 .news__container .slider__card__title {
   font-weight: 500;
   font-size: 20px;
   color: #1c1c1e;
   line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .news__container .slider__card__description {
   font-weight: 500;
   font-size: 16px;
   color: #1c1c1e;
   line-height: 23px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 .news__container .slider__buttons {
   width: 100%;
@@ -393,16 +405,10 @@ body {
   gap: 20px;
   justify-content: flex-end;
 }
-.news__container .slider__buttons__prev {
-  width: 64px;
-  height: 64px;
-  border: none;
-  color: #ffffff;
-  background: #003cff;
-  border-radius: 50px;
-  cursor: pointer;
-}
-.news__container .slider__buttons__next {
+.news__container .slider__buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 64px;
   height: 64px;
   border: none;
@@ -413,6 +419,8 @@ body {
 }
 .news__container .slider__buttons .disabled {
   pointer-events: none;
+  background: #ffffff;
+  border: 1px solid #003cff;
 }
 
 .support {
