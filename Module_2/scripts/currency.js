@@ -32,9 +32,12 @@ const exchangeCurrency = async (currencyArr) => {
     );
 };
 
-exchangeCurrency(currency);
 
-// Для примера обновление валют каждые 15 секунд
-setInterval(() => {
-    exchangeCurrency(currency);
-}, 15000);
+async function debounce(callback, delay) {
+    await callback(currency);
+    setTimeout(() => {
+        debounce(callback, delay);
+    }, delay);
+}
+
+debounce(exchangeCurrency, 5000);

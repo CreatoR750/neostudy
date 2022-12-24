@@ -1,17 +1,28 @@
 const slider = document.querySelector(".slider__wrapper");
 const prev = document.querySelector(".slider__buttons__prev");
 const next = document.querySelector(".slider__buttons__next");
+const cont = document.querySelector(".container");
 const NEWS_URL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=99f1e04ddffc4b4da15ec80bf056a183";
 let offset = 0;
-let newsLength;
+let shift;
 const cardWidth = 400;
 let length;
+
+function updateShift() {
+    if (window.innerWidth > 1300) {
+        shift = 3;
+    } else {
+        shift = 2;
+    }
+}
+
+updateShift();
+window.addEventListener("resize", updateShift);
 
 const getData = async () => {
     const response = await fetch(NEWS_URL);
     const data = await response.json();
-    newsLength = data.articles.length;
-    length = newsLength - 2;
+    length = data.articles.length - shift;
     data.articles.map((article) => {
         const div = document.createElement("div");
         div.classList.add("slider__card");
@@ -38,6 +49,7 @@ next.addEventListener("click", () => {
         next.innerHTML = `<img src="./assets/svg/nextBlack.svg" alt="Prev" />`;
         offset = cardWidth * length;
     }
+    console.log(offset);
     slider.style.left = -offset + "px";
 });
 
