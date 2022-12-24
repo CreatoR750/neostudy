@@ -49,7 +49,6 @@ next.addEventListener("click", () => {
         next.innerHTML = `<img src="./assets/svg/nextBlack.svg" alt="Prev" />`;
         offset = cardWidth * length;
     }
-    console.log(offset);
     slider.style.left = -offset + "px";
 });
 
