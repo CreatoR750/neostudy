@@ -1,7 +1,6 @@
 const slider = document.querySelector(".slider__wrapper");
 const prev = document.querySelector(".slider__buttons__prev");
 const next = document.querySelector(".slider__buttons__next");
-const cont = document.querySelector(".container");
 const NEWS_URL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=99f1e04ddffc4b4da15ec80bf056a183";
 let offset = 0;
 let shift;
@@ -23,7 +22,7 @@ const getData = async () => {
     const response = await fetch(NEWS_URL);
     const data = await response.json();
     length = data.articles.length - shift;
-    data.articles.map((article) => {
+    data.articles.forEach((article) => {
         const div = document.createElement("div");
         div.classList.add("slider__card");
         div.onclick = () => window.open(article.url, "_blank");
@@ -41,12 +40,10 @@ const getData = async () => {
 next.addEventListener("click", () => {
     if (prev.classList.contains("disabled")) {
         prev.classList.remove("disabled");
-        prev.innerHTML = `<img src="./assets/svg/prevWhite.svg" alt="Prev" />`;
     }
     offset = offset + cardWidth;
     if (offset >= cardWidth * length) {
         next.classList.add("disabled");
-        next.innerHTML = `<img src="./assets/svg/nextBlack.svg" alt="Prev" />`;
         offset = cardWidth * length;
     }
     slider.style.left = -offset + "px";
@@ -55,14 +52,12 @@ next.addEventListener("click", () => {
 prev.addEventListener("click", () => {
     if (next.classList.contains("disabled")) {
         next.classList.remove("disabled");
-        next.innerHTML = `<img src="./assets/svg/nextWhite.svg" alt="Prev" />`;
     }
     offset = offset - cardWidth;
     if (offset <= 0) {
         prev.classList.add("disabled");
-        prev.innerHTML = `<img src="./assets/svg/prevBlack.svg" alt="Prev" />`;
     }
     slider.style.left = -offset + "px";
 });
 
-getData();
+void getData();

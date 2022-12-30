@@ -32,12 +32,12 @@ const exchangeCurrency = async (currencyArr) => {
     );
 };
 
-
-async function debounce(callback, delay) {
-    await callback(currency);
-    setTimeout(() => {
-        debounce(callback, delay);
-    }, delay);
+function debounce(callback, delay) {
+    callback(currency).then(() => {
+        setTimeout(() => {
+            debounce(callback, delay);
+        }, delay);
+    });
 }
 
 debounce(exchangeCurrency, 5000);

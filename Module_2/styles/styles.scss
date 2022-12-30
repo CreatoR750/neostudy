@@ -418,11 +418,15 @@ body {
                     border-radius: 50px;
                     cursor: pointer;
                 }
-    
+
                 .disabled {
                     pointer-events: none;
                     background: $white;
                     border: 1px solid $blue;
+
+                    img {
+                        filter: invert(1);
+                    }
                 }
             }
         }

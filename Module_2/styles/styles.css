@@ -422,6 +422,9 @@ body {
   background: #ffffff;
   border: 1px solid #003cff;
 }
+.news__container .slider__buttons .disabled img {
+  filter: invert(1);
+}
 
 .support {
   width: 100%;
