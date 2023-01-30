@@ -1,0 +1,18 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.button {
+    width: fit-content;
+    height: 50px;
+    background-color: $blue;
+    padding: 16px;
+    border-radius: 16px;
+    border: none;
+    @include baseBold($white);
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+        background-color: #7796c0;
+    }
+}

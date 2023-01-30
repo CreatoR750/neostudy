@@ -1,0 +1,15 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.faq {
+    padding: 40px 0 70px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    &__header {
+        margin: 0;
+        @include largeBold($black);
+    }
+}

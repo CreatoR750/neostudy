@@ -1,0 +1,82 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+$margin: 50px;
+$arrowSize: 6px;
+$tooltipBack: #3d3d3d;
+.tooltip {
+    &__wrapper {
+        display: inline-block;
+        position: relative;
+    }
+
+    &__tip {
+        display: flex;
+        min-width: 125px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 6px;
+        color: $white;
+        background: $tooltipBack;
+        font-size: 12px;
+        line-height: 1;
+        z-index: 100;
+        white-space: wrap;
+
+        &::before {
+            content: " ";
+            left: 50%;
+            border: solid transparent;
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-width: $arrowSize;
+            margin-left: $arrowSize * -1;
+        }
+
+        &.top {
+            top: calc($margin * -1);
+            &::before {
+                top: 100%;
+                border-top-color: $tooltipBack;
+            }
+        }
+
+        &.right {
+            left: calc(100% + $margin);
+            top: 50%;
+            transform: translateX(0) translateY(-50%);
+            &::before {
+                left: calc($arrowSize * -1);
+                top: 50%;
+                transform: translateX(0) translateY(-50%);
+                border-right-color: $tooltipBack;
+            }
+        }
+
+        &.bottom {
+            bottom: calc($margin * -1);
+            &::before {
+                bottom: 100%;
+                border-bottom-color: $tooltipBack;
+            }
+        }
+
+        &.left {
+            left: auto;
+            right: calc(100% + $margin);
+            top: 50%;
+            transform: translateX(0) translateY(-50%);
+
+            &::before {
+                left: auto;
+                right: calc($arrowSize * -2);
+                top: 50%;
+                transform: translateX(0) translateY(-50%);
+                border-left-color: $tooltipBack;
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.slider {
+    padding: 0 5px;
+    height: 470px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &__wrapper {
+        display: flex;
+        position: relative;
+        left: 0;
+        width: fit-content;
+        align-items: flex-start;
+        gap: 80px;
+        transition: all ease 1s;
+    }
+
+    &__buttons {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        justify-content: flex-end;
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border: none;
+            color: $white;
+            background: #003cff;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .disabled {
+            pointer-events: none;
+            background: $white;
+            border: 1px solid $blue;
+
+            img {
+                filter: invert(1);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .slider {
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 10px;
+        &__wrapper {
+            align-items: center;
+            gap: 30px;
+        }
+
+        &__card {
+            scroll-snap-align: start;
+        }
+
+        &__buttons {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .slider {
+        &__card {
+            width: 88vw;
+        }
+    }
+}

@@ -22,6 +22,7 @@ const getData = async () => {
     const response = await fetch(NEWS_URL);
     const data = await response.json();
     length = data.articles.length - shift;
+    console.log(data);
     data.articles.forEach((article) => {
         const div = document.createElement("div");
         div.classList.add("slider__card");
@@ -31,7 +32,7 @@ const getData = async () => {
             ${article.title}
         </div>
         <div class="slider__card__description">
-        ${article.title}
+        ${article.description}
         </div>`;
         slider.appendChild(div);
     });

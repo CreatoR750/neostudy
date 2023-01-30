@@ -1,0 +1,36 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.accordion {
+    cursor: pointer;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    user-select: none;
+
+    &__title {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        img {
+            transition: all 0.3s ease;
+        }
+
+        .opened {
+            transform: rotate(180deg);
+        }
+        span {
+            @include baseMedium($black);
+        }
+    }
+
+    &__info {
+        width: 97%;
+        font-size: 16px;
+        font-weight: 400;
+        color: #7b7454;
+    }
+}

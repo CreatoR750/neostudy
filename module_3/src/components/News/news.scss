@@ -1,0 +1,71 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.news {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+
+        &__title {
+            margin: 0;
+            line-height: 50px;
+            @include largeMedium($black);
+        }
+
+        &__subtitle {
+            @include baseMedium($black);
+        }
+    }
+
+    &__container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+
+       
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .news__container {
+        .slider {
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scroll-padding: 10px;
+            &__wrapper {
+                align-items: center;
+                gap: 30px;
+            }
+
+            &__card {
+                scroll-snap-align: start;
+            }
+
+            &__buttons {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .news__container {
+        justify-content: center;
+        .slider {
+            &__card {
+                width: 88vw;
+            }
+        }
+    }
+}
