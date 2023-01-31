@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import "./accordionWrapper.scss";
 
 interface IAccordionWrapperProps {
-    children: React.ReactElement | React.ReactElement[];
+    children: ReactNode;
 }
 
 const AccordionWrapper: FC<IAccordionWrapperProps> = ({ children }) => {

@@ -1,10 +1,23 @@
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import Divider from "../../ui/Divider/Divider";
 import Form from "../Form/Form";
 import "./getCard.scss";
 
 const GetCard = () => {
+    const navigateRef = useRef<HTMLDivElement>(null);
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash) {
+            setTimeout(() => {
+                navigateRef.current?.scrollIntoView();
+            }, 100);
+        }
+    }, []);
+
     return (
-        <div className="get-card" id="get-card">
+        <div className="get-card" id="get-card" ref={navigateRef}>
             <h2 className="get-card__title">How to get a card</h2>
             <div className="get-card__steps">
                 <div className="step">
@@ -35,7 +48,7 @@ const GetCard = () => {
                     </div>
                 </div>
             </div>
-            <Form/>
+            <Form />
         </div>
     );
 };

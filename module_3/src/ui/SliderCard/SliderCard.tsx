@@ -1,8 +1,16 @@
-import { FC } from "react";
+import { FC, memo, useMemo } from "react";
 import { INews } from "../../models/newsModel";
 import "./sliderCard.scss";
+import { filterDescription } from "./utils";
 
 const SliderCard: FC<INews> = ({ url, urlToImage, title, description }) => {
+
+    const filter = useMemo(() => {
+        if (description.includes("<")) {
+            return filterDescription(description);
+        } else return description;
+    }, [description]);
+
     return (
         <div className="slider-card" onClick={() => window.open(url, "_blank")}>
             <img
@@ -15,9 +23,9 @@ const SliderCard: FC<INews> = ({ url, urlToImage, title, description }) => {
                 }}
             />
             <div className="slider-card__title">{title}</div>
-            <div className="slider-card__description">{description}</div>
+            <div className="slider-card__description">{filter}</div>
         </div>
     );
 };
 
-export default SliderCard;
+export default memo(SliderCard);

@@ -1,7 +1,8 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import "./tab.scss";
+
 export interface ITabProps {
-    children: React.ReactElement | React.ReactElement[];
+    children: ReactNode;
     name: string;
 }
 const Tab: FC<ITabProps> = ({ children }) => {

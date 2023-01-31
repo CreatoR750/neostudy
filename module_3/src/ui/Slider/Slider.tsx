@@ -7,12 +7,11 @@ import { INews } from "../../models/newsModel";
 import SliderLoader from "../SliderLoader/SliderLoader";
 import useWindowSize from "../../hooks/useWindowSize";
 import { DataService } from "../../services/data.service";
+const loaderArr = [1, 2, 3, 4];
+const cardWidth = 400;
 
 const Slider = () => {
-    const [data, setData] = useState<INews[]>();
-    const [loaderArr] = useState<number[]>([1, 2, 3, 4]);
-    const [cardWidth] = useState<number>(400);
-    const [length, setLength] = useState<number>();
+    const [values, setValues] = useState<{ length: number; data: INews[] | null }>({ length: 0, data: null });
     const [offset, setOffset] = useState<number>(0);
     const [shift, setShift] = useState<number>(3);
     const nextRef = useRef<HTMLButtonElement>(null);
@@ -29,12 +28,11 @@ const Slider = () => {
 
     useEffect(() => {
         getData();
-    }, [shift]);
+    }, []);
 
     const getData = async () => {
         const response = await DataService.getNews();
-        setData(response);
-        setLength(response.length - shift);
+        setValues({ length: response.length - shift, data: response });
     };
 
     const nextHandler = () => {
@@ -42,9 +40,9 @@ const Slider = () => {
             prevRef.current.classList.remove("disabled");
         }
         let newOffset = offset + cardWidth;
-        if (length && newOffset >= cardWidth * length) {
+        if (values.length && newOffset >= cardWidth * values.length) {
             nextRef.current?.classList.add("disabled");
-            newOffset = cardWidth * length;
+            newOffset = cardWidth * values.length;
         }
         setOffset(newOffset);
     };
@@ -63,8 +61,8 @@ const Slider = () => {
         <>
             <div className="slider">
                 <div className="slider__wrapper" style={{ left: `${-offset}px` }}>
-                    {data
-                        ? data.map((item) => {
+                    {values.data
+                        ? values.data.map((item) => {
                               return (
                                   <SliderCard
                                       key={item.title}
@@ -80,7 +78,7 @@ const Slider = () => {
                           })}
                 </div>
             </div>
-            {data ? (
+            {values.data ? (
                 <div className="slider__buttons">
                     <button
                         ref={prevRef}

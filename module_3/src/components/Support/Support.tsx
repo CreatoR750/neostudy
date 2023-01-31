@@ -1,5 +1,5 @@
 import "./support.scss";
-import emailcon from "../../assets/svg/email.svg";
+import emailIcon from "../../assets/svg/email.svg";
 import send from "../../assets/svg/send.svg";
 import { DataService } from "../../services/data.service";
 import { useEffect, useState } from "react";
@@ -15,7 +15,7 @@ const Support = () => {
     }, []);
 
     const handlerSubscribe = async () => {
-        if (email == "") return;
+        if (email === "") return;
         const response = await DataService.subscribeOnNews(email);
         if (response.status === 200) {
             localStorage.setItem("subscribed", JSON.stringify(true));
@@ -39,7 +39,7 @@ const Support = () => {
                 ) : (
                     <>
                         <input className="input" placeholder="Your email" type="email" onChange={(e) => setEmail(e.target.value)} />
-                        <img className="input__icon" src={emailcon} alt="Email" />
+                        <img className="input__icon" src={emailIcon} alt="Email" />
                         <button className="input__button" onClick={() => handlerSubscribe()}>
                             <img src={send} alt="Send" />
                             <span>Subscribe</span>
