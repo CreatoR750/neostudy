@@ -57,6 +57,7 @@ const Slider = () => {
         }
         setOffset(newOffset);
     };
+
     return (
         <>
             <div className="slider">
