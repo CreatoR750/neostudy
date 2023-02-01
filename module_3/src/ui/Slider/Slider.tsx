@@ -7,6 +7,7 @@ import { INews } from "../../models/newsModel";
 import SliderLoader from "../SliderLoader/SliderLoader";
 import useWindowSize from "../../hooks/useWindowSize";
 import { DataService } from "../../services/data.service";
+
 const loaderArr = [1, 2, 3, 4];
 const cardWidth = 400;
 
