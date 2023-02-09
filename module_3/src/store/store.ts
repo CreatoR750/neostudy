@@ -9,7 +9,7 @@ const loanPersistConfig = {
 };
 
 const rootReducer = combineReducers({ loan: persistReducer(loanPersistConfig, loan) });
-//const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
+
 export const store = configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
@@ -19,7 +19,7 @@ export const store = configureStore({
             },
         }),
 });
-//export const store = configureStore({ reducer: rootReducer, middleware: [thunk] });
+
 export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
