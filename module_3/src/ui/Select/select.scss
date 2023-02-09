@@ -1,0 +1,43 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.select {
+    &__wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        &.small {
+            width: 300px;
+        }
+
+        &.medium {
+            width: 400px;
+        }
+
+        &.large {
+            width: 600px;
+        }
+    }
+
+    &__label {
+        @include baseMedium($black);
+        margin-bottom: 10px;
+
+        span {
+            color: #ff5631;
+        }
+    }
+
+    &__select {
+        padding: 0 10px;
+        height: 40px;
+        background: #f9f5e3;
+        border: 1px solid rgba(128, 128, 128, 0.2);
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 400;
+        outline: 1px solid transparent;
+        transition: all 0.3s ease;
+    }
+}

@@ -1,0 +1,135 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.exchange {
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 360px;
+    background: linear-gradient(358.2deg, rgba(178, 178, 178, 0.8) 8.06%, rgba(178, 178, 178, 0) 67.93%), rgba(244, 244, 244, 0.9);
+    mix-blend-mode: normal;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 2px 4px rgba(187, 187, 187, 0.2);
+    border-radius: 28px;
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        height: 100%;
+
+        &__update {
+            @include baseMedium($black);
+        }
+
+        &__image {
+            width: 120px;
+        }
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 70%;
+
+        &__title {
+            margin: 0;
+            @include largeMedium($black);
+            line-height: 50px;
+        }
+
+        &__subtitle {
+            @include bigMedium($black);
+        }
+
+        &__courses {
+            width: 430px;
+            display: flex;
+            height: 75px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .course {
+                display: flex;
+                gap: 32px;
+                height: fit-content;
+                &__item {
+                    @include bigBold($gray);
+                }
+
+                &__value {
+                    @include bigBold($black);
+                }
+            }
+        }
+
+        &__info {
+            line-height: 22px;
+            @include bigBold($white);
+        }
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .exchange {
+        padding: 16px;
+
+        &__left {
+            &__title {
+                font-size: 24px;
+            }
+        }
+
+        &__right {
+            &__update {
+                text-align: right;
+            }
+
+            &__image {
+                width: 60px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .exchange {
+        justify-content: center;
+        height: fit-content;
+        &__left {
+            width: 100%;
+            justify-content: flex-start;
+            gap: 16px;
+
+            &__title {
+                line-height: 30px;
+            }
+
+            &__info {
+                font-size: 14px;
+            }
+
+            &__courses {
+                justify-content: flex-start;
+                gap: 15px;
+                width: 100%;
+                .course {
+                    gap: 10px;
+                    &__item {
+                        font-size: 16px;
+                    }
+                    &__value {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        &__right {
+            display: none;
+        }
+    }
+}

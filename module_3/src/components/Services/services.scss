@@ -1,0 +1,40 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.services {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+
+        &__title {
+            margin: 0;
+            line-height: 50px;
+            @include largeMedium($black);
+        }
+
+        &__subtitle {
+            @include baseMedium($black);
+        }
+    }
+
+    &__image {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .services {
+        &__image {
+            width: 95%;
+        }
+    }
+}

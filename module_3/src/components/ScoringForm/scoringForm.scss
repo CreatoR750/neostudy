@@ -1,0 +1,69 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.scoring-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+
+    &__upper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        &__left {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            &__header {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+
+                h2 {
+                    margin: 0;
+                    @include largeBold($black);
+                }
+
+                span {
+                    @include baseMedium($black);
+                }
+            }
+
+            &__fields {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+                row-gap: 25px;
+            }
+        }
+
+        &__right {
+            width: 45%;
+
+            span {
+                @include bigBold($black);
+            }
+        }
+    }
+
+    &__contact {
+        margin: 0;
+        @include bigBold($black);
+    }
+
+    &__fields {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        row-gap: 25px;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

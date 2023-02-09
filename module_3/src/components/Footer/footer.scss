@@ -1,0 +1,88 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.footer {
+    width: 100%;
+    background: linear-gradient(0deg, rgba(178, 178, 178, 0.2), rgba(178, 178, 178, 0.2)), #f4f4f4;
+    padding: 95px 0;
+
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        &__header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .contacts {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                &__number {
+                    @include largeBold($black);
+                }
+
+                &__email {
+                    @include baseMedium($footerGray);
+                }
+            }
+        }
+
+        &__links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            row-gap: 8px;
+
+            .link {
+                @include baseMedium($black);
+            }
+        }
+
+        &__cookies {
+            padding-top: 32px;
+            border-top: 2px solid $white;
+
+            span {
+                line-height: 147.4%;
+                @include baseMedium($footerGray);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .footer {
+        padding: 45px 0;
+        &__wrapper {
+            &__header {
+                .contacts__number {
+                    font-size: 18px;
+                }
+            }
+
+            &__cookies {
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .footer {
+        &__wrapper {
+            &__header {
+                img {
+                    width: 30%;
+                }
+            }
+        }
+    }
+}

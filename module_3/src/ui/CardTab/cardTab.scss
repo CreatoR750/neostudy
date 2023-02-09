@@ -1,0 +1,43 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.card-tab {
+    padding: 30px 30px 35px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.08), 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 28px;
+
+    &__icon {
+        width: 40px;
+    }
+
+    h2 {
+        margin: 0;
+        @include largeBold($black);
+    }
+    span {
+        @include baseMedium($black);
+    }
+
+    &.light {
+        background: #eaecee;
+    }
+
+    &.dark {
+        background: rgba(127, 146, 172, 0.7);
+    }
+
+    &.small {
+        width: 30%;
+    }
+
+    &.big {
+        width: 48%;
+    }
+
+    &.large {
+        width: 100%;
+    }
+}

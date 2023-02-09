@@ -1,0 +1,22 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.slider-loader {
+    width: 320px;
+    height: 450px;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 28px;
+    @keyframes color {
+        0% {
+            background: #ffffff;
+        }
+        50% {
+            background: #eeeeee;
+        }
+        100% {
+            background: #ffffff;
+        }
+    }
+    animation: color 0.5s infinite linear;
+}

@@ -1,0 +1,70 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input {
+    &__wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        &.small {
+            width: 300px;
+        }
+
+        &.medium {
+            width: 400px;
+        }
+
+        &.large {
+            width: 600px;
+        }
+    }
+
+    &__label {
+        @include baseMedium($black);
+        margin-bottom: 10px;
+
+        span {
+            color: #ff5631;
+        }
+    }
+
+    &__input {
+        padding: 0 10px;
+        height: 40px;
+        background: #f9f5e3;
+        border: 1px solid rgba(128, 128, 128, 0.2);
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 400;
+        outline: 1px solid transparent;
+        transition: all 0.3s ease;
+
+        &:focus {
+            outline: 1px solid $purple;
+        }
+
+        &.not-valid {
+            outline: 1px solid #ff5631;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        width: 20px;
+        left: calc(100% - 30px);
+        top: calc(50% + 4px);
+    }
+
+    &__error {
+        @include baseMedium(#ff5631);
+        position: absolute;
+        top: 70px;
+    }
+}

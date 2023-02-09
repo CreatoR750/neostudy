@@ -1,0 +1,40 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.offer-card {
+    background: #ffffff;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.08), 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 28px;
+    padding: 30px;
+    display: flex;
+    width: 300px;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    transition: outline 3s ease;
+    outline-color: transparent;
+    transition: outline 0.3s ease;
+
+    &:hover {
+        outline: 2px solid $blue;
+    }
+
+    &__info {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+
+        span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            @include baseMedium($black);
+        }
+
+        &__image {
+            margin-bottom: 10px;
+        }
+    }
+}

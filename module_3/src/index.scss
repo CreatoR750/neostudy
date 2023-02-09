@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+body {
+    background-color: #f5f4ff;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1300px;
+}
+
+html {
+    scroll-behavior: smooth; /* свойство scroll-behavior не наследуется, применяется к прокручиваемым блокам */
+}
+
+@media screen and (max-width: 1350px) {
+    .container {
+        max-width: 92vw;
+    }
+}
