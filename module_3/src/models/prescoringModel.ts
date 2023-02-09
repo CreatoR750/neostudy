@@ -1,4 +1,4 @@
-export interface ILoanValues {
+export interface IPrescoringValues {
     amount: number;
     term: number;
     firstName: string;

@@ -1,20 +1,23 @@
 import { FC } from "react";
 import { Path, UseFormRegister } from "react-hook-form";
-import { ILoanValues } from "../../models/loan";
+import { IPrescoringValues } from "../../models/prescoringModel";
+import { IScoringValues } from "../../models/scoringModel";
 import "./select.scss";
 
 interface ISelectProps {
+    type?: "date" | "any";
+    size?: "small" | "medium" | "large";
     label?: string;
     required?: boolean;
-    name: Path<ILoanValues>;
-    register: UseFormRegister<ILoanValues>;
+    name: Path<IPrescoringValues | IScoringValues>;
+    register: UseFormRegister<IPrescoringValues | IScoringValues | any>;
     validation?: Record<string, any>;
-    options: number[];
+    options: number[] | string[];
 }
 
-const Select: FC<ISelectProps> = ({ label, required, name, register, validation, options }) => {
+const Select: FC<ISelectProps> = ({ size = "small", label, required, name, register, validation, options, type = "any" }) => {
     return (
-        <div className="select__wrapper">
+        <div className={`select__wrapper ${size}`}>
             {label && (
                 <label className="select__label">
                     {label}
@@ -23,7 +26,12 @@ const Select: FC<ISelectProps> = ({ label, required, name, register, validation,
             )}
             <select className={`select__select`} {...register(name, validation)}>
                 {options.map((option) => {
-                    return <option key={option} value={option}>{`${option} month`}</option>;
+                    return (
+                        <option key={option} value={option}>
+                            {`${option}`}
+                            {type === "date" && " month"}
+                        </option>
+                    );
                 })}
             </select>
         </div>

@@ -1,0 +1,23 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.card-decision {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 30px;
+    gap: 30px;
+    border: 1px solid #5b35d5;
+    border-radius: 20px;
+
+    h3 {
+        text-align: center;
+        margin: 0;
+        @include largeBold($black);
+    }
+
+    span {
+        @include baseMedium(#4f5665);
+    }
+}

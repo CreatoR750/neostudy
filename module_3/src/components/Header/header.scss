@@ -8,7 +8,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    
+
     &__logo {
         @include big2Bold($purple);
         cursor: pointer;
@@ -92,7 +92,13 @@
 
             a {
                 cursor: pointer;
-                @include largeBold($black);
+                text-decoration: none;
+                @include largeBold($gray2);
+                letter-spacing: 0.02em;
+            }
+
+            .active {
+                color: $gold;
             }
         }
 

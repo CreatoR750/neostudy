@@ -8,11 +8,12 @@ import credit from "../../assets/svg/credit.svg";
 
 interface IInfoCardProps {
     color: "light" | "dark";
-    size: "small" | "big";
+    size: "small" | "big" | "large";
     icon: "money" | "calendar" | "clock" | "bag" | "credit";
     header: string;
     text: string;
 }
+
 const CardTab: FC<IInfoCardProps> = ({ color, size, icon, header, text }) => {
     const imageHandler = () => {
         switch (icon) {

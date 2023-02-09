@@ -4,9 +4,20 @@
 .select {
     &__wrapper {
         position: relative;
-        width: 300px;
         display: flex;
         flex-direction: column;
+
+        &.small {
+            width: 300px;
+        }
+
+        &.medium {
+            width: 400px;
+        }
+
+        &.large {
+            width: 600px;
+        }
     }
 
     &__label {

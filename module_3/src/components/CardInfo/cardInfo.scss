@@ -11,7 +11,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
-    
+
     &__left {
         height: 100%;
         width: 55%;
@@ -62,6 +62,34 @@
 
         img {
             width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .card-info {
+        flex-direction: column;
+        gap: 20px;
+
+        &__left {
+            width: 100%;
+            align-items: center;
+
+            &__sub {
+                text-align: center;
+                width: 80%;
+            }
+
+            &__terms {
+                width: 100%;
+            }
+            h2 {
+                text-align: center;
+            }
+        }
+
+        &__right {
+            display: none;
         }
     }
 }

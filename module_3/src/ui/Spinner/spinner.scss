@@ -10,9 +10,10 @@
             transform: rotate(360deg);
         }
     }
+    position: relative;
     z-index: 1000;
-    border: 0.2em solid rgba(0, 0, 0, 0.1);
-    border-top: 0.2em solid $purple;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-top: 5px solid $purple;
     border-radius: 50%;
     width: 70px;
     height: 70px;

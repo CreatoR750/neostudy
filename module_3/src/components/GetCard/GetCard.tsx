@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import Divider from "../../ui/Divider/Divider";
-import Form from "../Form/Form";
+import CardStatus from "../CardStatus/CardStatus";
 import "./getCard.scss";
 
 const GetCard = () => {
@@ -48,7 +48,7 @@ const GetCard = () => {
                     </div>
                 </div>
             </div>
-            <Form />
+            <CardStatus />
         </div>
     );
 };

@@ -17,11 +17,6 @@ const Header = () => {
         }
     };
 
-    const navClick = () => {
-        burgerHandler();
-        navigate("/loan");
-    };
-
     return (
         <header className="container">
             <div className="header">
@@ -52,19 +47,12 @@ const Header = () => {
                             <span></span>
                         </div>
                         <div className="header__menu" ref={menuRef}>
-                            <nav className="header__menu__nav">
-                                <a>Online Bank</a>
-                                <a
-                                    id="loan"
-                                    onClick={() => {
-                                        navClick();
-                                    }}
-                                >
-                                    Credit card
-                                </a>
-                                <a>Product</a>
-                                <a>Account</a>
-                                <a>Resources</a>
+                            <nav className="header__menu__nav" onClick={() => burgerHandler()}>
+                                <NavLink to="/">Home</NavLink>
+                                <NavLink to="/loan">Credit card</NavLink>
+                                <NavLink to="/1">Product</NavLink>
+                                <NavLink to="/2">Account</NavLink>
+                                <NavLink to="/3">Resources</NavLink>
                             </nav>
                         </div>
                     </>

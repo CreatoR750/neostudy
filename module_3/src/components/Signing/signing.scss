@@ -1,0 +1,45 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.signing {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+
+        h3 {
+            margin: 0;
+            @include largeBold($black);
+        }
+
+        span {
+            @include baseMedium($black);
+        }
+    }
+
+    p {
+        @include bigMedium(#4f5665);
+    }
+
+    &__docs {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        span {
+            @include bigMedium($black);
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 80px;
+    }
+}

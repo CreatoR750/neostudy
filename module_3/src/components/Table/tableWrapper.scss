@@ -1,0 +1,37 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.table-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+
+        h3 {
+            margin: 0;
+            @include largeBold($black);
+        }
+        span {
+            @include baseMedium($black);
+        }
+    }
+
+    
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__checks {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+    }
+}

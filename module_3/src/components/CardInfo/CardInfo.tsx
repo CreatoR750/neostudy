@@ -1,8 +1,15 @@
 import "./cardInfo.scss";
 import Tooltip from "../../ui/Tooltip/Tooltip";
 import card5 from "../../assets/img/card5.png";
+import { useAppSelector } from "../../hooks/useTypedStore";
+import { RootState } from "../../store/types";
+import { LoanStatusEnum } from "../../models/loanStatusEnum";
+import useCurrentStepNavigate from "../../hooks/useCurrentStepNavigate";
+import { StepsEnum } from "../../models/stepsEnum";
 
 const CardInfo = () => {
+    const navigateToCurrentStep = useCurrentStepNavigate();
+    const currentStep = useAppSelector((state: RootState) => state.loan.currentStep);
     return (
         <div className="card-info">
             <div className="card-info__left">
@@ -22,19 +29,17 @@ const CardInfo = () => {
                         <Tooltip content="Over the limit willaccrue percent" direction="top">
                             <span className="term__title">Up to 600 000 ₽</span>
                         </Tooltip>
-
                         <span className="term__sub">Credit limit</span>
                     </div>
                     <div className="term">
                         <Tooltip content="Promotion valid until December 31, 2022." direction="top">
                             <span className="term__title">0 ₽</span>
                         </Tooltip>
-
                         <span className="term__sub">Card service is free</span>
                     </div>
                 </div>
-                <a href="#get-card" style={{ textDecoration: "none" }} className="button">
-                    Apply for card
+                <a href="#get-card" style={{ textDecoration: "none" }} className="button" onClick={()=>navigateToCurrentStep()}>
+                    {currentStep === StepsEnum.Step1 ? "Apply for card" : "Continue registration"}
                 </a>
             </div>
             <div className="card-info__right">

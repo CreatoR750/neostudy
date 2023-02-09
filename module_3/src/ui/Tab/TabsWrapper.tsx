@@ -28,12 +28,14 @@ const TabsWrapper: FC<ITabWrapperProps> = ({ children }) => {
         setTabValues({ tabHeader: headers, active: headers[0], childContent: { ...childCnt } });
     }, [children]);
 
+    const childCnt = tabValues.childContent;
+
     return (
         <div className="tab">
             <div className="tab__header">
                 {tabValues.tabHeader?.map((item) => (
                     <div
-                        onClick={() => setTabValues({ ...tabValues, active: item })}
+                        onClick={() => setTabValues((prev) => ({ ...prev, active: item }))}
                         key={item}
                         className={item === tabValues.active ? "active" : ""}
                     >
@@ -42,10 +44,10 @@ const TabsWrapper: FC<ITabWrapperProps> = ({ children }) => {
                 ))}
             </div>
             <div className="tab__content">
-                {tabValues.childContent &&
-                    Object.keys(tabValues.childContent).map((key) => {
+                {childCnt &&
+                    Object.keys(childCnt).map((key) => {
                         if (key === tabValues.active) {
-                            return <div key={key}>{(tabValues.childContent as Record<string, ReactElement<ITabProps>>)[key]}</div>;
+                            return <div key={key}>{(childCnt)[key]}</div>;
                         } else {
                             return null;
                         }

@@ -1,16 +1,31 @@
+import useWindowSize from "../../hooks/useWindowSize";
 import CardTab from "../../ui/CardTab/CardTab";
 import "./aboutCard.scss";
 
 const AboutCard = () => {
+    const size = useWindowSize();
+
     return (
         <div className="about-card">
-            <CardTab text="Cash and transfers without commission and percent" header="Up to 50 000 ₽" color="light" size="small" icon="money" />
-            <CardTab text="Without percent on the loan" header="Up to 160 days" color="dark" size="small" icon="calendar" />
+            <CardTab
+                text="Cash and transfers without commission and percent"
+                header="Up to 50 000 ₽"
+                color="light"
+                size={size.width! < 920 ? "big" : "small"}
+                icon="money"
+            />
+            <CardTab
+                text="Without percent on the loan"
+                header="Up to 160 days"
+                color="dark"
+                size={size.width! < 920 ? "big" : "small"}
+                icon="calendar"
+            />
             <CardTab
                 text="We will deliver your card by courier at a convenient place and time for you"
                 header="Free delivery"
                 color="light"
-                size="small"
+                size={size.width! < 920 ? "big" : "small"}
                 icon="clock"
             />
             <CardTab

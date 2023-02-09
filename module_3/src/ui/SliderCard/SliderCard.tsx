@@ -16,7 +16,7 @@ const SliderCard: FC<INews> = ({ url, urlToImage, title, description }) => {
                 }}
             />
             <div className="slider-card__title">{title}</div>
-            <div className="slider-card__description">{filterDescription(description)}</div>
+            <div className="slider-card__description">{filterDescription(description) || "Ooops! This new has broken description"}</div>
         </div>
     );
 };

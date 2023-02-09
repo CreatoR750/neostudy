@@ -1,37 +1,43 @@
 @import "../../assets/styles/variables.scss";
 @import "../../assets/styles/mixins.scss";
 
-.form {
-    padding: 40px;
-    width: 100%;
-    background: #ffffff;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.08), 0px 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 28px;
+.scoring-form {
     display: flex;
     flex-direction: column;
     gap: 30px;
     position: relative;
 
-    &__loader {
-        position: absolute;
-        left: calc(50% - 35px);
-        top: calc(33%);
-    }
     &__upper {
         width: 100%;
         display: flex;
         justify-content: space-between;
 
         &__left {
-            width: 50%;
-            border-right: 1px dashed rgba(128, 128, 128, 0.4);
+            width: 100%;
             display: flex;
             flex-direction: column;
             gap: 20px;
 
-            h2 {
-                margin: 0;
-                @include largeBold($black);
+            &__header {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+
+                h2 {
+                    margin: 0;
+                    @include largeBold($black);
+                }
+
+                span {
+                    @include baseMedium($black);
+                }
+            }
+
+            &__fields {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+                row-gap: 25px;
             }
         }
 

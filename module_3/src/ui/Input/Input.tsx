@@ -3,23 +3,25 @@ import "./input.scss";
 import { Path, UseFormRegister } from "react-hook-form";
 import errorIcon from "../../assets/svg/error.svg";
 import successIcon from "../../assets/svg/success.svg";
-import { ILoanValues } from "../../models/loan";
+import { IPrescoringValues } from "../../models/prescoringModel";
+import { IScoringValues } from "../../models/scoringModel";
 
 interface IInputProps {
+    size?: "small" | "medium" | "large";
     type: "text" | "email" | "number" | "date";
     placeholder?: string;
     label?: string;
     required?: boolean;
-    name: Path<ILoanValues>;
-    register: UseFormRegister<ILoanValues>;
+    name: Path<IPrescoringValues | IScoringValues>;
+    register: UseFormRegister<IPrescoringValues | IScoringValues | any>;
     validation?: Record<string, any>;
     errors?: any;
     isDirty?: boolean;
 }
 
-const Input: FC<IInputProps> = ({ type, label, required, placeholder, name, register, validation, errors, isDirty }) => {
+const Input: FC<IInputProps> = ({ size = "small", type, label, required, placeholder, name, register, validation, errors, isDirty }) => {
     return (
-        <div className="input__wrapper">
+        <div className={`input__wrapper ${size}`}>
             <label className="input__label">
                 {label}
                 {required && <span> *</span>}
