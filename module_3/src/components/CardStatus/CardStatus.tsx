@@ -5,7 +5,7 @@ import CardDecision from "../CardDecision/CardDecision";
 import Form from "../PrescoringForm/PrescoringForm";
 import Offers from "../Offers/Offers";
 import "./cardStatus.scss";
-import BlurLoader from "../../ui/BlurLoader/BlurLoader";
+import { BlurLoader } from "../../ui";
 
 const CardStatus = () => {
     const loanStatus = useAppSelector((state: RootState) => state.loan.loanStatus);

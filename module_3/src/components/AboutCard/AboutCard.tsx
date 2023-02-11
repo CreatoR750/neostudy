@@ -1,5 +1,5 @@
 import useWindowSize from "../../hooks/useWindowSize";
-import CardTab from "../../ui/CardTab/CardTab";
+import { CardTab } from "../../ui";
 import "./aboutCard.scss";
 
 const AboutCard = () => {

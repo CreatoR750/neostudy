@@ -13,7 +13,7 @@ interface ITabsValues {
     active: string | null;
 }
 
-const TabsWrapper: FC<ITabWrapperProps> = ({ children }) => {
+export const TabsWrapper: FC<ITabWrapperProps> = ({ children }) => {
     const [tabValues, setTabValues] = useState<ITabsValues>({ tabHeader: null, childContent: null, active: null });
 
     useEffect(() => {
@@ -57,4 +57,3 @@ const TabsWrapper: FC<ITabWrapperProps> = ({ children }) => {
     );
 };
 
-export default TabsWrapper;

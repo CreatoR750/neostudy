@@ -5,8 +5,8 @@ interface IAccordionWrapperProps {
     children: ReactNode;
 }
 
-const AccordionWrapper: FC<IAccordionWrapperProps> = ({ children }) => {
+export const AccordionWrapper: FC<IAccordionWrapperProps> = ({ children }) => {
     return <div className="accordion-wrapper">{children}</div>;
 };
 
-export default AccordionWrapper;
+

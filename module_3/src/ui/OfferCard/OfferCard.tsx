@@ -1,17 +1,17 @@
 import "./offerCard.scss";
 import offerImage from "../../assets/img/offerImage.png";
-import Button from "../Button/Button";
 import errorIcon from "../../assets/svg/error.svg";
 import successIcon from "../../assets/svg/success.svg";
 import { FC, memo } from "react";
 import { IOfferCard } from "../../models/offerCardModel";
+import { Button } from "..";
 
 interface IOfferCardProps {
     onSelectClick: (offer: IOfferCard) => void;
     offer: IOfferCard;
 }
 
-const OfferCard: FC<IOfferCardProps> = ({ onSelectClick, offer }) => {
+export const OfferCard: FC<IOfferCardProps> = memo(({ onSelectClick, offer }) => {
     return (
         <div className="offer-card">
             <div className="offer-card__info">
@@ -31,6 +31,4 @@ const OfferCard: FC<IOfferCardProps> = ({ onSelectClick, offer }) => {
             <Button text="Select" onClick={() => onSelectClick(offer)} />
         </div>
     );
-};
-
-export default memo(OfferCard);
+});

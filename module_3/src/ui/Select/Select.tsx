@@ -15,7 +15,7 @@ interface ISelectProps {
     options: number[] | string[];
 }
 
-const Select: FC<ISelectProps> = ({ size = "small", label, required, name, register, validation, options, type = "any" }) => {
+export const Select: FC<ISelectProps> = ({ size = "small", label, required, name, register, validation, options, type = "any" }) => {
     return (
         <div className={`select__wrapper ${size}`}>
             {label && (
@@ -38,4 +38,4 @@ const Select: FC<ISelectProps> = ({ size = "small", label, required, name, regis
     );
 };
 
-export default Select;
+

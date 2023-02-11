@@ -2,6 +2,7 @@ import "./exchange.scss";
 import house from "../../assets/img/house.png";
 import { DataService } from "../../services/data.service";
 import { useEffect, useState } from "react";
+
 const currency = ["USD", "EUR", "CNH", "IDR", "TWD", "THB"];
 
 interface ICurrency {

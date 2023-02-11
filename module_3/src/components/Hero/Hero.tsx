@@ -3,8 +3,8 @@ import card1 from "../../assets/img/card1.jpg";
 import card2 from "../../assets/img/card2.jpg";
 import card3 from "../../assets/img/card3.jpg";
 import card4 from "../../assets/img/card4.jpg";
-import Button from "../../ui/Button/Button";
 import {  useNavigate } from "react-router-dom";
+import { Button } from "../../ui";
 
 const Hero = () => {
     const navigate = useNavigate();

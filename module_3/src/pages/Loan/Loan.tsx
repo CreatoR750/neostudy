@@ -5,8 +5,7 @@ import Container from "../../components/Container/Container";
 import FAQ from "../../components/FAQ/FAQ";
 import GetCard from "../../components/GetCard/GetCard";
 import Rates from "../../components/Rates/Rates";
-import Tab from "../../ui/Tab/Tab";
-import TabsWrapper from "../../ui/Tab/TabsWrapper";
+import { Tab, TabsWrapper } from "../../ui";
 
 const Loan = () => {
     return (

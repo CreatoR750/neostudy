@@ -1,10 +1,8 @@
 import "./popup.scss";
-import Portal from "../Portal/Portal";
 import { FC, useEffect } from "react";
 import close from "../../assets/svg/close.svg";
-import Button from "../Button/Button";
-import ModalBackground from "../ModalBackground/ModalBackground";
 import useOutsideClick from "../../hooks/useOutsideClick";
+import { Button, ModalBackground, Portal } from "..";
 
 interface IPopupProps {
     title: string;
@@ -13,14 +11,17 @@ interface IPopupProps {
     isOpened: boolean;
 }
 
-const Popup: FC<IPopupProps> = ({ title, message, onClose, isOpened }) => {
+export const Popup: FC<IPopupProps> = ({ title, message, onClose, isOpened }) => {
     const popupRef = useOutsideClick(onClose);
 
     useEffect(() => {
-        isOpened &&
-            setTimeout(() => {
+        let timer: NodeJS.Timeout;
+        if (isOpened) {
+            timer = setTimeout(() => {
                 onClose();
             }, 3000);
+        }
+        return () => clearTimeout(timer);
     }, [isOpened]);
 
     if (!isOpened) return null;
@@ -42,5 +43,3 @@ const Popup: FC<IPopupProps> = ({ title, message, onClose, isOpened }) => {
         </Portal>
     );
 };
-
-export default Popup;

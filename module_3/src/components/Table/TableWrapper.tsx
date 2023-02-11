@@ -3,14 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/useTypedStore";
 import { getDocuments, getPaymentList, resetLoan } from "../../store/slice/loanSlice";
 import { RootState } from "../../store/store";
-import Background from "../../ui/Background/Background";
-import BlurLoader from "../../ui/BlurLoader/BlurLoader";
-import Button from "../../ui/Button/Button";
-import Checkbox from "../../ui/Checkbox/Checkbox";
-import Modal from "../../ui/Modal/Modal";
-import Popup from "../../ui/Popup/Popup";
-import Spinner from "../../ui/Spinner/Spinner";
-import Table from "../../ui/Table/Table";
+import { Background, BlurLoader, Button, Checkbox, Modal, Popup, Spinner, Table } from "../../ui";
 import "./tableWrapper.scss";
 
 const columns = ["NUMBER", "DATE", "TOTAL PAYMENT", "INTEREST PAYMENT", "DEBT PAYMENT", "REMAINING DEBT"];
@@ -18,8 +11,8 @@ const columns = ["NUMBER", "DATE", "TOTAL PAYMENT", "INTEREST PAYMENT", "DEBT PA
 const TableWrapper = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const isSending = useAppSelector((state: RootState) => state.loan.isSending);
     const { applicationId } = useParams();
+    const isSending = useAppSelector((state: RootState) => state.loan.isSending);
     const paymentList = useAppSelector((state: RootState) => state.loan.paymentList);
     const [isModalOpened, setIsModalOpened] = useState<boolean>(false);
     const [isPopupOpened, setIsPopupOpened] = useState<boolean>(false);

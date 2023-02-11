@@ -1,13 +1,11 @@
 import "./signing.scss";
-import Button from "../../ui/Button/Button";
-import Checkbox from "../../ui/Checkbox/Checkbox";
 import docs from "../../assets/svg/docs.svg";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/useTypedStore";
 import { signDocuments } from "../../store/slice/loanSlice";
 import { useParams } from "react-router-dom";
 import { RootState } from "../../store/store";
-import BlurLoader from "../../ui/BlurLoader/BlurLoader";
+import { BlurLoader, Button, Checkbox } from "../../ui";
 
 const Signing = () => {
     const { applicationId } = useParams();

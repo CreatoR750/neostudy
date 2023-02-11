@@ -4,8 +4,7 @@ import "./modalBackground.scss";
 interface IModalBackgroundProps {
     children:ReactNode
 }
-const ModalBackground:FC<IModalBackgroundProps> = ({children}) => {
+export const ModalBackground:FC<IModalBackgroundProps> = ({children}) => {
     return <div className="modal-back">{children}</div>;
 };
 
-export default ModalBackground;

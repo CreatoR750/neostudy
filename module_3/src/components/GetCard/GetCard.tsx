@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import Divider from "../../ui/Divider/Divider";
+import { Divider } from "../../ui";
 import CardStatus from "../CardStatus/CardStatus";
 import "./getCard.scss";
 

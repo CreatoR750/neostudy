@@ -9,7 +9,7 @@ interface IButtonProps {
     onClick?: () => void;
 }
 
-const Button: FC<IButtonProps> = ({ size, text, onClick, type, disabled }) => {
+export const Button: FC<IButtonProps> = ({ size, text, onClick, type, disabled }) => {
     return (
         <button className={`button ${type} ${size} ${disabled ? "disabled" : ""}`} onClick={onClick} disabled={disabled}>
             {text}
@@ -17,4 +17,4 @@ const Button: FC<IButtonProps> = ({ size, text, onClick, type, disabled }) => {
     );
 };
 
-export default Button;
+

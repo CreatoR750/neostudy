@@ -1,12 +1,8 @@
-import Spinner from "../Spinner/Spinner";
-import "./blurLoader.scss"
+import { Spinner } from "..";
+import "./blurLoader.scss";
 
-const BlurLoader = () => {
-    return (
-        <div className="blur-loader">
-            <Spinner />
-        </div>
-    );
-};
-
-export default BlurLoader;
+export const BlurLoader = () => (
+    <div className="blur-loader">
+        <Spinner />
+    </div>
+);

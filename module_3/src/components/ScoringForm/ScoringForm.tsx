@@ -2,22 +2,18 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../hooks/useTypedStore";
 import { IScoringValues, ScoringType } from "../../models/scoringModel";
-import Background from "../../ui/Background/Background";
-import Button from "../../ui/Button/Button";
-import Input from "../../ui/Input/Input";
-import Select from "../../ui/Select/Select";
-import { validateDate } from "./utils";
 import { useParams } from "react-router-dom";
 import { sendScoringForm } from "../../store/slice/loanSlice";
-import BlurLoader from "../../ui/BlurLoader/BlurLoader";
 import "./scoringForm.scss";
 import { RootState } from "../../store/store";
+import { validation } from "./validation";
+import { Background, BlurLoader, Button, Input, Select } from "../../ui";
 
 const ScoringForm = () => {
     const { applicationId } = useParams();
     const dispatch = useAppDispatch();
     const isSending = useAppSelector((state: RootState) => state.loan.isSending);
- 
+
     const {
         register,
         handleSubmit,
@@ -79,9 +75,7 @@ const ScoringForm = () => {
                                 register={register}
                                 name="dependentAmount"
                                 label="Your number of dependents"
-                                validation={{
-                                    valueAsNumber: true,
-                                }}
+                                validation={validation.dependentAmount}
                                 required
                             />
                             <Input
@@ -92,14 +86,7 @@ const ScoringForm = () => {
                                 label="Date of issue of the passport"
                                 name={"passportIssueDate"}
                                 register={register}
-                                validation={{
-                                    required: "Enter date",
-                                    validate: validateDate,
-                                    pattern: {
-                                        value: /^[0-9]{4}[-][0-9]{2}[-][0-9]{2}$/i,
-                                        message: "Invalid date",
-                                    },
-                                }}
+                                validation={validation.passportIssueDate}
                                 errors={errors.passportIssueDate}
                                 required
                             />
@@ -111,13 +98,7 @@ const ScoringForm = () => {
                                 label="Division code"
                                 name={"passportIssueBranch"}
                                 register={register}
-                                validation={{
-                                    required: "Enter division code",
-                                    pattern: {
-                                        value: /^[0-9]{6}$/,
-                                        message: "The code must be 6 digits",
-                                    },
-                                }}
+                                validation={validation.passportIssueBranch}
                                 errors={errors.passportIssueBranch}
                                 required
                             />
@@ -143,13 +124,7 @@ const ScoringForm = () => {
                         label="Your employer INN"
                         name={"employerINN"}
                         register={register}
-                        validation={{
-                            required: "Enter employer INN",
-                            pattern: {
-                                value: /^[0-9]{12}$/,
-                                message: "The INN must be 12 digits",
-                            },
-                        }}
+                        validation={validation.employerINN}
                         errors={errors.employerINN}
                         required
                     />
@@ -161,13 +136,7 @@ const ScoringForm = () => {
                         label="Your salary"
                         name={"salary"}
                         register={register}
-                        validation={{
-                            required: "Enter your salary",
-                            pattern: {
-                                value: /^\d+$/,
-                                message: "The salary must be digits",
-                            },
-                        }}
+                        validation={validation.salary}
                         errors={errors.salary}
                         required
                     />
@@ -187,14 +156,7 @@ const ScoringForm = () => {
                         label="Your work experience total"
                         name={"workExperienceTotal"}
                         register={register}
-                        validation={{
-                            required: "Enter your total work experience ",
-                            maxLength: 2,
-                            pattern: {
-                                value: /^\d+$/,
-                                message: "The work experience must be 2 digits",
-                            },
-                        }}
+                        validation={validation.workExperienceTotal}
                         errors={errors.workExperienceTotal}
                         required
                     />
@@ -206,14 +168,7 @@ const ScoringForm = () => {
                         label="Your work experience current"
                         name={"workExperienceCurrent"}
                         register={register}
-                        validation={{
-                            required: "Enter your current work experience",
-                            maxLength: 2,
-                            pattern: {
-                                value: /^\d+$/,
-                                message: "The current work experience  must be 2 digits",
-                            },
-                        }}
+                        validation={validation.workExperienceCurrent}
                         errors={errors.workExperienceCurrent}
                         required
                     />

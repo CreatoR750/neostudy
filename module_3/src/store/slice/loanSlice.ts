@@ -83,7 +83,8 @@ export const sendPrescoringForm = (data: IPrescoringValues) => async (dispatch: 
 export const sendScoringForm = (data: ScoringType, applicationId: string) => async (dispatch: AppDispatch) => {
     dispatch(setIsSending(true));
     try {
-        DataService.registrateApplication(data, applicationId).then(() => dispatch(setCurrentStep(3)));
+        await DataService.registrateApplication(data, applicationId);
+        dispatch(setCurrentStep(3));
         dispatch(setIsSending(false));
     } catch (e) {
         dispatch(setIsSending(false));
@@ -94,7 +95,7 @@ export const sendScoringForm = (data: ScoringType, applicationId: string) => asy
 export const sendSelectedOffer = (data: IOfferCard) => async (dispatch: AppDispatch) => {
     dispatch(setIsSending(true));
     try {
-        DataService.applyApplication(data).then(() => dispatch(sendOfferSuccess()));
+        await DataService.applyApplication(data);
         dispatch(sendOfferSuccess());
     } catch (e) {
         dispatch(setIsSending(false));
@@ -117,10 +118,9 @@ export const getPaymentList = (applicationId: string) => async (dispatch: AppDis
 export const getDocuments = (applicationId: string) => async (dispatch: AppDispatch) => {
     dispatch(setIsSending(true));
     try {
-        await DataService.createDocuments(applicationId).then(() => {
-            dispatch(setCurrentStep(StepsEnum.Step4));
-            dispatch(setIsSending(false));
-        });
+        await DataService.createDocuments(applicationId);
+        dispatch(setCurrentStep(StepsEnum.Step4));
+        dispatch(setIsSending(false));
     } catch (e) {
         dispatch(setIsSending(false));
         console.log((e as Error).message);
@@ -130,10 +130,9 @@ export const getDocuments = (applicationId: string) => async (dispatch: AppDispa
 export const signDocuments = (applicationId: string) => async (dispatch: AppDispatch) => {
     dispatch(setIsSending(true));
     try {
-        await DataService.signDocuments(applicationId).then(() => {
-            dispatch(setCurrentStep(StepsEnum.Step5));
-            dispatch(setIsSending(false));
-        });
+        await DataService.signDocuments(applicationId);
+        dispatch(setCurrentStep(StepsEnum.Step5));
+        dispatch(setIsSending(false));
     } catch (e) {
         dispatch(setIsSending(false));
         console.log((e as Error).message);
@@ -143,9 +142,8 @@ export const signDocuments = (applicationId: string) => async (dispatch: AppDisp
 export const sendCode = (applicationId: string, code: string) => async (dispatch: AppDispatch) => {
     dispatch(setIsSending(true));
     try {
-        DataService.sendCode(applicationId, code).then(() => {
-            dispatch(resetLoan());
-        });
+        await DataService.sendCode(applicationId, code);
+        dispatch(resetLoan());
     } catch (e) {
         dispatch(setIsSending(false));
         dispatch(setError("Invalid confirmation code"));

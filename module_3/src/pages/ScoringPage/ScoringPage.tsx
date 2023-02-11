@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/useTypedStore";
 import { RootState } from "../../store/store";
 import { useEffect } from "react";
 import { setCurrentStep } from "../../store/slice/loanSlice";
-import LoanMessage from "../../ui/LoanMessage/LoanMessage";
+import { LoanMessage } from "../../ui";
 
 const ScoringPage = () => {
     const dispatch = useAppDispatch();

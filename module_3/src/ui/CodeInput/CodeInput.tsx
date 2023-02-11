@@ -1,16 +1,16 @@
 import { createRef, FC, RefObject, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Spinner } from "..";
 import { useAppDispatch, useAppSelector } from "../../hooks/useTypedStore";
 import { sendCode } from "../../store/slice/loanSlice";
 import { RootState } from "../../store/store";
-import Spinner from "../Spinner/Spinner";
 import "./codeInput.scss";
 
 interface ICodeInputProps {
     numberOfInputs: number;
 }
 
-const CodeInput: FC<ICodeInputProps> = ({ numberOfInputs }) => {
+export const CodeInput: FC<ICodeInputProps> = ({ numberOfInputs }) => {
     const dispatch = useAppDispatch();
     const isSending = useAppSelector((state: RootState) => state.loan.isSending);
     const error = useAppSelector((state: RootState) => state.loan.error);
@@ -45,7 +45,7 @@ const CodeInput: FC<ICodeInputProps> = ({ numberOfInputs }) => {
 
     useEffect(() => {
         if (inputRefsArray?.[0]?.current) {
-            inputRefsArray?.[0]?.current?.focus();
+            inputRefsArray[0].current.focus();
         }
         window.addEventListener("keyup", ({ key }) => handleKeyPress(key), false);
         return () => {
@@ -88,5 +88,3 @@ const CodeInput: FC<ICodeInputProps> = ({ numberOfInputs }) => {
         </div>
     );
 };
-
-export default CodeInput;

@@ -2,7 +2,7 @@ import Container from "../../components/Container/Container";
 import TableWrapper from "../../components/Table/TableWrapper";
 import { useAppSelector } from "../../hooks/useTypedStore";
 import { RootState } from "../../store/store";
-import LoanMessage from "../../ui/LoanMessage/LoanMessage";
+import { LoanMessage } from "../../ui";
 import "./payment.scss";
 
 const Payment = () => {

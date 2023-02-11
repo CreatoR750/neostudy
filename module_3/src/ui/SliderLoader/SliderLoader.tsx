@@ -1,7 +1,6 @@
 import "./sliderLoader.scss";
 
-const SliderLoader = () => {
+export const SliderLoader = () => {
     return <div className="slider-loader" />;
 };
 
-export default SliderLoader;

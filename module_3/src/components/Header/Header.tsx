@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import useWindowSize from "../../hooks/useWindowSize";
-import Button from "../../ui/Button/Button";
+import { Button } from "../../ui";
 import "./header.scss";
 
 const Header = () => {

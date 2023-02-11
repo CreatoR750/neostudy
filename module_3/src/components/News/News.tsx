@@ -1,4 +1,4 @@
-import Slider from "../../ui/Slider/Slider";
+import { Slider } from "../../ui";
 import "./news.scss";
 
 const News = () => {

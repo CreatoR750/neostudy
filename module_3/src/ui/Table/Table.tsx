@@ -19,12 +19,12 @@ interface IHeader {
     name: string;
 }
 
-const Table: FC<ITableProps> = ({ data, columns }) => {
+export const Table: FC<ITableProps> = ({ data, columns }) => {
     const [values, setValues] = useState<IPayment[]>(data);
     const [sort, setSort] = useState<ISort>({ id: "", type: "asc" });
     const [header, setHeader] = useState<IHeader[]>([]);
 
-    useMemo(() => {
+    useEffect(() => {
         setHeader(
             Object.keys(data[0]).map((value, index) => {
                 return { id: value, name: columns[index] };
@@ -37,7 +37,7 @@ const Table: FC<ITableProps> = ({ data, columns }) => {
     }, []);
 
     useEffect(() => {
-        if (sort.id === "") return;
+        if (!sort.id) return;
         handlerSorting(sort);
     }, [sort]);
 
@@ -92,5 +92,3 @@ const Table: FC<ITableProps> = ({ data, columns }) => {
         </div>
     );
 };
-
-export default Table;

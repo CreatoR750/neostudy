@@ -1,0 +1,1 @@
+export { SliderLoader } from "./SliderLoader";
