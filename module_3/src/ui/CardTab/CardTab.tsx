@@ -14,7 +14,7 @@ interface IInfoCardProps {
     text: string;
 }
 
-const CardTab: FC<IInfoCardProps> = ({ color, size, icon, header, text }) => {
+export const CardTab: FC<IInfoCardProps> = ({ color, size, icon, header, text }) => {
     const imageHandler = () => {
         switch (icon) {
             case "money":
@@ -39,4 +39,3 @@ const CardTab: FC<IInfoCardProps> = ({ color, size, icon, header, text }) => {
     );
 };
 
-export default CardTab;

@@ -3,7 +3,8 @@ import emailIcon from "../../assets/svg/email.svg";
 import send from "../../assets/svg/send.svg";
 import { DataService } from "../../services/data.service";
 import { useEffect, useState } from "react";
-import Tooltip from "../../ui/Tooltip/Tooltip";
+import { Tooltip } from "../../ui";
+
 
 const Support = () => {
     const [email, setEmail] = useState<string>("");

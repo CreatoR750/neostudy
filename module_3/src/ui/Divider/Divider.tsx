@@ -5,8 +5,7 @@ interface IDividerProps {
     thickness?: number;
 }
 
-const Divider: FC<IDividerProps> = ({ thickness }) => {
+export const Divider: FC<IDividerProps> = ({ thickness }) => {
     return <div style={{ height: `${thickness}px` }} className="divider"/>;
 };
 
-export default Divider;

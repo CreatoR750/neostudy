@@ -1,7 +1,7 @@
 import { FC } from "react";
 import "./loanMessage.scss";
 import offerImage from "../../assets/img/offerImage.png";
-import Button from "../Button/Button";
+import { Button } from "..";
 
 interface ILoanMessageProps {
     title: string;
@@ -11,7 +11,7 @@ interface ILoanMessageProps {
     onClick?: () => void;
 }
 
-const LoanMessage: FC<ILoanMessageProps> = ({ title, message, image, buttonText, onClick }) => {
+export const LoanMessage: FC<ILoanMessageProps> = ({ title, message, image, buttonText, onClick }) => {
     return (
         <div className="loan-message">
             {image && <img src={offerImage} alt="Offer" />}
@@ -22,4 +22,3 @@ const LoanMessage: FC<ILoanMessageProps> = ({ title, message, image, buttonText,
     );
 };
 
-export default LoanMessage;

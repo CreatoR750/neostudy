@@ -1,4 +1,4 @@
-import CashbackCard from "../../ui/CashbackCard/CashbackCard";
+import { CashbackCard } from "../../ui";
 import "./cashback.scss";
 
 const Cashback = () => {

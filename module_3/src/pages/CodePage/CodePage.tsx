@@ -1,10 +1,9 @@
 import "./codePage.scss";
 import Container from "../../components/Container/Container";
-import CodeInput from "../../ui/CodeInput/CodeInput";
 import { useAppSelector } from "../../hooks/useTypedStore";
 import { RootState } from "../../store/store";
-import LoanMessage from "../../ui/LoanMessage/LoanMessage";
 import useCurrentStepNavigate from "../../hooks/useCurrentStepNavigate";
+import { CodeInput, LoanMessage } from "../../ui";
 
 const CodePage = () => {
     const currentStep = useAppSelector((state: RootState) => state.loan.currentStep);

@@ -15,13 +15,13 @@ function App() {
         <>
             <Header />
             <Routes>
-                <Route path={"*"} element={<NotFound />} />
-                <Route path={"/"} element={<Home />} />
-                <Route path={"/loan"} element={<Loan />} />
-                <Route path={"/loan/:applicationId"} element={<ScoringPage />} />
-                <Route path={"/loan/:applicationId/document"} element={<Payment />} />
-                <Route path={"/loan/:applicationId/document/sign"} element={<DocumentSigning />} />
-                <Route path={"/loan/:applicationId/code"} element={<CodePage />} />
+                <Route path="*" element={<NotFound />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/loan" element={<Loan />} />
+                <Route path="/loan/:applicationId" element={<ScoringPage />} />
+                <Route path="/loan/:applicationId/document" element={<Payment />} />
+                <Route path="/loan/:applicationId/document/sign" element={<DocumentSigning />} />
+                <Route path="/loan/:applicationId/code" element={<CodePage />} />
             </Routes>
             <Footer />
         </>

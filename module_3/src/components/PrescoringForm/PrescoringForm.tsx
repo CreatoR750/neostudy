@@ -1,14 +1,10 @@
 import "./prescoringForm.scss";
-import Button from "../../ui/Button/Button";
-import Input from "../../ui/Input/Input";
 import { useForm } from "react-hook-form";
-import Select from "../../ui/Select/Select";
 import { IPrescoringValues } from "../../models/prescoringModel";
 import { sendPrescoringForm } from "../../store/slice/loanSlice";
-import Background from "../../ui/Background/Background";
-import { validateDate } from "./utils";
-import { useAppDispatch, useAppSelector } from "../../hooks/useTypedStore";
-import { RootState } from "../../store/store";
+import { useAppDispatch} from "../../hooks/useTypedStore";
+import { validation } from "./validation";
+import { Background, Button, Input, Select } from "../../ui";
 
 const PrescoringForm = () => {
     const dispatch = useAppDispatch();
@@ -18,7 +14,7 @@ const PrescoringForm = () => {
         formState: { errors, dirtyFields },
     } = useForm<IPrescoringValues>({ mode: "onChange" });
 
-    const onSubmit = async (data: IPrescoringValues) => {
+    const onSubmit = (data: IPrescoringValues) => {
         dispatch(sendPrescoringForm(data));
     };
 
@@ -38,18 +34,7 @@ const PrescoringForm = () => {
                             label="Amount"
                             name={"amount"}
                             register={register}
-                            validation={{
-                                required: "Enter amount",
-                                valueAsNumber: true,
-                                min: {
-                                    value: 14999,
-                                    message: "Incorrect amount",
-                                },
-                                max: {
-                                    value: 600001,
-                                    message: "Incorrect amount",
-                                },
-                            }}
+                            validation={validation.amount}
                             errors={errors.amount}
                             required
                         />
@@ -67,7 +52,7 @@ const PrescoringForm = () => {
                         label="Your last name"
                         name={"lastName"}
                         register={register}
-                        validation={{ required: "Enter you last name" }}
+                        validation={validation.lastName}
                         errors={errors.lastName}
                         required
                     />
@@ -78,7 +63,7 @@ const PrescoringForm = () => {
                         label="Your first name"
                         name={"firstName"}
                         register={register}
-                        validation={{ required: "Enter you first name" }}
+                        validation={validation.firstName}
                         errors={errors.firstName}
                         required
                     />
@@ -89,7 +74,7 @@ const PrescoringForm = () => {
                         label="Your patronymic"
                         name={"middleName"}
                         register={register}
-                        validation={{ required: "Enter you middle name" }}
+                        validation={validation.middleName}
                         errors={errors.middleName}
                         required
                     />
@@ -99,9 +84,7 @@ const PrescoringForm = () => {
                         register={register}
                         name="term"
                         label="Select term"
-                        validation={{
-                            valueAsNumber: true,
-                        }}
+                        validation={validation.term}
                         required
                     />
                     <Input
@@ -112,13 +95,7 @@ const PrescoringForm = () => {
                         label="Your email"
                         name={"email"}
                         register={register}
-                        validation={{
-                            required: "Enter email",
-                            pattern: {
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                message: "invalid email address",
-                            },
-                        }}
+                        validation={validation.email}
                         errors={errors.email}
                     />
                     <Input
@@ -129,14 +106,7 @@ const PrescoringForm = () => {
                         label="Your date of birth"
                         name={"birthdate"}
                         register={register}
-                        validation={{
-                            required: "Enter date",
-                            validate: validateDate,
-                            pattern: {
-                                value: /^[0-9]{4}[-][0-9]{2}[-][0-9]{2}$/i,
-                                message: "invalid date",
-                            },
-                        }}
+                        validation={validation.birthDate}
                         errors={errors.birthdate}
                     />
                     <Input
@@ -147,13 +117,7 @@ const PrescoringForm = () => {
                         label="Your passport series"
                         name={"passportSeries"}
                         register={register}
-                        validation={{
-                            required: "Enter passport series",
-                            pattern: {
-                                value: /^[0-9]{4}$/,
-                                message: "The series must be 4 digits",
-                            },
-                        }}
+                        validation={validation.passportSeries}
                         errors={errors.passportSeries}
                     />
 
@@ -165,13 +129,7 @@ const PrescoringForm = () => {
                         label="Your passport number"
                         name={"passportNumber"}
                         register={register}
-                        validation={{
-                            required: "Enter passport number",
-                            pattern: {
-                                value: /^[0-9]{6}$/,
-                                message: "The series must be 6 digits",
-                            },
-                        }}
+                        validation={validation.passportNumber}
                         errors={errors.passportNumber}
                     />
                 </div>

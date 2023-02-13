@@ -19,7 +19,7 @@ interface IInputProps {
     isDirty?: boolean;
 }
 
-const Input: FC<IInputProps> = ({ size = "small", type, label, required, placeholder, name, register, validation, errors, isDirty }) => {
+export const Input: FC<IInputProps> = ({ size = "small", type, label, required, placeholder, name, register, validation, errors, isDirty }) => {
     return (
         <div className={`input__wrapper ${size}`}>
             <label className="input__label">
@@ -34,4 +34,3 @@ const Input: FC<IInputProps> = ({ size = "small", type, label, required, placeho
     );
 };
 
-export default Input;

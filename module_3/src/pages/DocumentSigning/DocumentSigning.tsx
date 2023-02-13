@@ -2,7 +2,7 @@ import Container from "../../components/Container/Container";
 import Signing from "../../components/Signing/Signing";
 import { useAppSelector } from "../../hooks/useTypedStore";
 import { RootState } from "../../store/store";
-import LoanMessage from "../../ui/LoanMessage/LoanMessage";
+import { LoanMessage } from "../../ui";
 import "./documentSigning.scss";
 
 const DocumentSigning = () => {

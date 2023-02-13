@@ -1,4 +1,4 @@
-import Divider from "../../ui/Divider/Divider";
+import { Divider } from "../../ui";
 import "./rates.scss";
 
 const Rates = () => {

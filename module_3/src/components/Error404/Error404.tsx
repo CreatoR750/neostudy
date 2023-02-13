@@ -1,10 +1,11 @@
 import "./error.scss";
 import notFoundImage from "../../assets/img/notFoundImage.png";
-import Button from "../../ui/Button/Button";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../ui";
 
 const Error404 = () => {
     const navigate = useNavigate();
+
     return (
         <section className="error-404">
             <div className="error-404__text">

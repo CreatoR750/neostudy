@@ -8,7 +8,7 @@ interface ICheckboxProps {
     props?: any;
 }
 
-const Checkbox: FC<ICheckboxProps> = ({ label, checked, setIsChecked, ...props }) => {
+export const Checkbox: FC<ICheckboxProps> = ({ label, checked, setIsChecked, ...props }) => {
     return (
         <div className="checkbox-wrapper">
             <label>
@@ -24,4 +24,3 @@ const Checkbox: FC<ICheckboxProps> = ({ label, checked, setIsChecked, ...props }
         </div>
     );
 };
-export default Checkbox;

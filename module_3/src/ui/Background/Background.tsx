@@ -5,8 +5,8 @@ interface IBackgroundProps {
     children: ReactNode;
 }
 
-const Background: FC<IBackgroundProps> = ({ children }) => {
+export const Background: FC<IBackgroundProps> = ({ children }) => {
     return <div className="background">{children}</div>;
 };
 
-export default Background;
+

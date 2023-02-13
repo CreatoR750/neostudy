@@ -1,11 +1,12 @@
-import  { FC, ReactNode, useEffect, useState } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 interface IPortalProps {
     children: ReactNode;
 }
-const Portal:FC<IPortalProps> = ({ children }) => {
-    const [container] = useState(() => document.createElement("div"));
+
+export const Portal: FC<IPortalProps> = ({ children }) => {
+    const container = document.createElement("div");
 
     useEffect(() => {
         document.body.appendChild(container);
@@ -16,5 +17,3 @@ const Portal:FC<IPortalProps> = ({ children }) => {
     }, []);
     return createPortal(children, container);
 };
-
-export default Portal;

@@ -7,8 +7,9 @@ interface IAccordionProps {
     info: string;
 }
 
-const Accordion: FC<IAccordionProps> = ({ title, info }) => {
+export const Accordion: FC<IAccordionProps> = ({ title, info }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+
     return (
         <div className="accordion" onClick={() => setIsOpen((isOpen) => !isOpen)}>
             <div className="accordion__title">
@@ -19,5 +20,3 @@ const Accordion: FC<IAccordionProps> = ({ title, info }) => {
         </div>
     );
 };
-
-export default Accordion;

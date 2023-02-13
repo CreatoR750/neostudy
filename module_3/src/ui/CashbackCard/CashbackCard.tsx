@@ -7,7 +7,7 @@ interface ICashbackCardProps {
     text: string;
 }
 
-const CashbackCard: FC<ICashbackCardProps> = ({ color, header, text }) => {
+export const CashbackCard: FC<ICashbackCardProps> = ({ color, header, text }) => {
     return (
         <div className={`cashback-card ${color}`}>
             <span>{text}</span>
@@ -16,4 +16,3 @@ const CashbackCard: FC<ICashbackCardProps> = ({ color, header, text }) => {
     );
 };
 
-export default CashbackCard;

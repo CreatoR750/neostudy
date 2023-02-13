@@ -8,7 +8,7 @@ interface ITooltipProps {
     direction?: "top" | "right" | "left" | "bottom";
 }
 
-const Tooltip: FC<ITooltipProps> = ({ children, delay, content, direction }) => {
+export const Tooltip: FC<ITooltipProps> = ({ children, delay, content, direction }) => {
     let timeout: NodeJS.Timeout;
     const [isActive, setIsActive] = useState<boolean>(false);
 
@@ -31,4 +31,3 @@ const Tooltip: FC<ITooltipProps> = ({ children, delay, content, direction }) => 
     );
 };
 
-export default Tooltip;

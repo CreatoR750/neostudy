@@ -3,7 +3,7 @@ import { INews } from "../../models/newsModel";
 import "./sliderCard.scss";
 import { filterDescription } from "./utils";
 
-const SliderCard: FC<INews> = ({ url, urlToImage, title, description }) => {
+export const SliderCard: FC<INews> = memo(({ url, urlToImage, title, description }) => {
     return (
         <div className="slider-card" onClick={() => window.open(url, "_blank")}>
             <img
@@ -19,6 +19,4 @@ const SliderCard: FC<INews> = ({ url, urlToImage, title, description }) => {
             <div className="slider-card__description">{filterDescription(description) || "Ooops! This new has broken description"}</div>
         </div>
     );
-};
-
-export default memo(SliderCard);
+});

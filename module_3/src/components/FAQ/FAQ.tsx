@@ -1,6 +1,4 @@
-import Accordion from "../../ui/Accordion/Accordion";
-import AccordionWrapper from "../../ui/AccordionWrapper/AccordionWrapper";
-import Divider from "../../ui/Divider/Divider";
+import { Accordion, AccordionWrapper, Divider } from "../../ui";
 import "./faq.scss";
 
 const FAQ = () => {

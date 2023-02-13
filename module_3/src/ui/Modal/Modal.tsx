@@ -1,10 +1,8 @@
 import "./modal.scss";
-import Portal from "../Portal/Portal";
 import { FC } from "react";
 import close from "../../assets/svg/close.svg";
-import Button from "../Button/Button";
-import ModalBackground from "../ModalBackground/ModalBackground";
 import useOutsideClick from "../../hooks/useOutsideClick";
+import { Button, ModalBackground, Portal } from "..";
 
 interface IModalProps {
     title: string;
@@ -14,7 +12,7 @@ interface IModalProps {
     isOpened: boolean;
 }
 
-const Modal: FC<IModalProps> = ({ title, message, onClick, onClose, isOpened }) => {
+export const Modal: FC<IModalProps> = ({ title, message, onClick, onClose, isOpened }) => {
     const modalRef = useOutsideClick(onClose);
 
     if (!isOpened) return null;
@@ -38,4 +36,3 @@ const Modal: FC<IModalProps> = ({ title, message, onClick, onClose, isOpened }) 
     );
 };
 
-export default Modal;

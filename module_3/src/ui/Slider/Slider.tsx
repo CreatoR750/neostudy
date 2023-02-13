@@ -1,17 +1,16 @@
 import "./slider.scss";
 import prev from "../../assets/svg/prevWhite.svg";
 import next from "../../assets/svg/nextWhite.svg";
-import SliderCard from "../SliderCard/SliderCard";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { INews } from "../../models/newsModel";
-import SliderLoader from "../SliderLoader/SliderLoader";
 import useWindowSize from "../../hooks/useWindowSize";
 import { DataService } from "../../services/data.service";
+import { SliderCard, SliderLoader } from "..";
 
 const loaderArr = [1, 2, 3, 4];
 const cardWidth = 400;
 
-const Slider = () => {
+export const Slider = () => {
     const [values, setValues] = useState<{ length: number; data: INews[] | null }>({ length: 0, data: null });
     const [offset, setOffset] = useState<number>(0);
     const [shift, setShift] = useState<number>(3);
@@ -106,4 +105,3 @@ const Slider = () => {
     );
 };
 
-export default Slider;
